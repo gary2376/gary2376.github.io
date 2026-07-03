@@ -1,4 +1,4 @@
-# Cheng-Yao Hsu — Personal Portfolio
+# Gary HSU — Personal Portfolio
 
 Personal portfolio website featuring selected AI research, engineering projects, publications, and professional milestones.
 
