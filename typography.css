@@ -1,0 +1,5 @@
+body { font-family: "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", sans-serif; }
+.brand, h1, .eyebrow { font-family: "Space Grotesk", "Noto Sans TC", sans-serif; }
+.brand, .row h2, .milestone h2 { font-weight: 600; }
+.row h2, .milestone h2 { font-family: "Space Grotesk", "Noto Sans TC", sans-serif; }
+.num, .meta, .year, .milestone time, .type { font-family: "IBM Plex Mono", monospace; }

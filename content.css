@@ -1,0 +1,25 @@
+.summary-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; margin-top:48px; }
+.summary-card { padding:22px; border:1px solid var(--line); background:rgba(250,250,248,.45); }
+.summary-card strong { display:block; font:500 30px/1 "Space Grotesk",sans-serif; }
+.summary-card span { color:var(--muted); font-size:12px; }
+.project-entry { display:grid; grid-template-columns:80px 1fr; gap:28px; padding:52px 0; border-bottom:1px solid var(--line); }
+.project-entry:first-child { border-top:1px solid var(--ink); }
+.project-content h2 { margin:0 0 10px; font:600 clamp(25px,3vw,38px)/1.15 "Space Grotesk","Noto Sans TC",sans-serif; letter-spacing:-.04em; }
+.project-content .partner { margin:0 0 28px; color:var(--muted); font-size:12px; letter-spacing:.06em; text-transform:uppercase; }
+.project-layout { display:grid; grid-template-columns:minmax(0,1.15fr) minmax(280px,.85fr); gap:42px; align-items:start; }
+.project-copy p { margin:0; color:var(--muted); font-size:15px; }
+.project-figure { display:grid; place-items:center; min-height:240px; margin:0; padding:24px; border:1px solid var(--line); background:#f8f8f6; }
+.project-figure img { display:block; width:100%; max-height:300px; object-fit:contain; filter:saturate(.76) contrast(.97); }
+.project-link { display:inline-flex; margin-top:18px; padding-bottom:3px; border-bottom:1px solid var(--ink); color:var(--ink); font:500 12px "IBM Plex Mono",monospace; letter-spacing:.04em; }
+.project-aside { margin-top:24px; padding-top:20px; border-top:1px solid var(--line); }
+.project-aside dl { margin:0; }
+.project-aside dt { margin-top:16px; color:var(--muted); font:10px "IBM Plex Mono",monospace; letter-spacing:.1em; }
+.project-aside dt:first-child { margin-top:0; }
+.project-aside dd { margin:4px 0 0; font-size:13px; }
+.section-label { margin:80px 0 22px; font:500 13px "IBM Plex Mono",monospace; letter-spacing:.1em; }
+.credential { display:grid; grid-template-columns:150px 1fr auto; gap:28px; align-items:center; padding:28px 0; border-bottom:1px solid var(--line); }
+.credential:first-of-type { border-top:1px solid var(--ink); }
+.credential h2 { margin:0; font-size:21px; }
+.credential p { margin:4px 0 0; color:var(--muted); font-size:13px; }
+.credential .mark { padding:5px 9px; border:1px solid var(--ink); font:10px "IBM Plex Mono",monospace; }
+@media(max-width:760px){.summary-grid{grid-template-columns:1fr}.project-entry{grid-template-columns:1fr}.project-layout{grid-template-columns:1fr;gap:26px}.project-aside{padding-top:18px}.credential{grid-template-columns:1fr}.credential .mark{justify-self:start}}
