@@ -22,4 +22,8 @@
 .credential h2 { margin:0; font-size:21px; }
 .credential p { margin:4px 0 0; color:var(--muted); font-size:13px; }
 .credential .mark { padding:5px 9px; border:1px solid var(--ink); font:10px "IBM Plex Mono",monospace; }
+.thumb-row { display:flex; flex-wrap:wrap; gap:10px; margin-top:16px; }
+.milestone-thumb { display:block; width:160px; aspect-ratio:4/3; overflow:hidden; border:1px solid var(--line); background:#e9e9e5; }
+.milestone-thumb img { display:block; width:100%; height:100%; object-fit:cover; filter:saturate(.78) contrast(.98); transition:transform .25s ease,filter .25s ease; }
+.milestone-thumb:hover img { transform:scale(1.035); filter:saturate(1) contrast(1); }
 @media(max-width:760px){.summary-grid{grid-template-columns:1fr}.project-entry{grid-template-columns:1fr}.project-layout{grid-template-columns:1fr;gap:26px}.project-aside{padding-top:18px}.credential{grid-template-columns:1fr}.credential .mark{justify-self:start}}
