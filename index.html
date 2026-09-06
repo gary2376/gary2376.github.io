@@ -169,10 +169,10 @@
     h2 { margin: 0; font-family: "Space Grotesk", "Noto Sans TC", sans-serif; font-size: clamp(35px, 5vw, 64px); font-weight: 600; letter-spacing: -.055em; line-height: 1; }
     .section-lead { max-width: 680px; margin: 4px 0 0; color: var(--muted); font-size: 17px; }
 
-    .projects { display: grid; grid-template-columns: repeat(12, 1fr); gap: 52px 24px; }
-    .project { grid-column: span 7; }
-    .project:nth-child(2), .project:nth-child(3) { grid-column: span 5; }
-    .project:nth-child(2) { margin-top: 120px; }
+    .projects { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: 52px 24px; }
+    .project { grid-column: span 5; min-width: 0; }
+    .project:nth-child(2) { grid-column: span 4; margin-top: 96px; }
+    .project:nth-child(3) { grid-column: span 3; margin-top: 36px; }
     .visual {
       position: relative;
       min-height: 390px;
@@ -180,7 +180,8 @@
       border: 1px solid #c2c2bc;
       background: var(--panel);
     }
-    .project:nth-child(2) .visual, .project:nth-child(3) .visual { min-height: 310px; }
+    .project:nth-child(2) .visual { min-height: 330px; }
+    .project:nth-child(3) .visual { min-height: 290px; }
     .visual::before, .visual::after { content: ""; position: absolute; }
     .visual.project-image { display: grid; place-items: center; padding: clamp(18px, 3vw, 42px); background: #f8f8f6; }
     .visual.project-image::before, .visual.project-image::after { content: none; }
@@ -252,8 +253,8 @@
       .hero-note { max-width: 450px; }
       section { padding-block: 78px; }
       .section-head { gap: 22px; margin-bottom: 40px; }
-      .projects { gap: 46px; }
-      .project, .project:nth-child(2), .project:nth-child(3) { grid-column: span 12; margin-top: 0; }
+      .projects { grid-template-columns: 1fr; gap: 46px; }
+      .project, .project:nth-child(2), .project:nth-child(3) { grid-column: 1; margin-top: 0; }
       .visual, .project:nth-child(2) .visual, .project:nth-child(3) .visual { min-height: 280px; }
       .facts { grid-template-columns: 1fr; }
       .event { grid-template-columns: 80px 1fr; }
@@ -285,7 +286,7 @@
           <h1>RESEARCH.<span>BUILD. IMPACT.</span></h1>
         </div>
         <div class="hero-note">
-          <p>Hi, I'm Gary—an AI researcher and engineer working across generative AI, geospatial intelligence, and decision-support systems.</p>
+          <p>I'm Gary, a graduate researcher in AI. I like building things that end up running in the real world, not just proving a point in a notebook.</p>
           <div class="actions">
             <a class="button primary" href="#work">View selected work</a>
             <a class="button" href="#contact">Get in touch</a>
@@ -305,7 +306,6 @@
             <p class="eyebrow">01 / Selected projects</p>
             <h2>Selected Work</h2>
           </div>
-          <p class="section-lead">A selection of projects documenting the problem, technical decisions, and measurable outcomes—not just the finished product.</p>
         </div>
 
         <div class="projects">
@@ -314,7 +314,7 @@
             <div class="project-meta">
               <div>
                 <h3>AI Tourism Poster Generation</h3>
-                <p>A RAG and Stable Diffusion platform that turns custom images into location-aware tourism posters while preserving visual structure.</p>
+                <p>Keeps your photo's actual shape, not just an AI reskin over a stock image. RAG pulls the location context, ControlNet-guided SDXL holds the structure while restyling it.</p>
                 <div class="tags"><span class="tag">RAG</span><span class="tag">SDXL</span><span class="tag">CONTROLNET</span></div>
               </div>
               <span class="number">01</span>
@@ -326,7 +326,7 @@
             <div class="project-meta">
               <div>
                 <h3>結合雷達回波與降雨數據的 CNN-LSTM 模型應用於大規模水位預測</h3>
-                <p>A nationwide forecasting pipeline for 311 river stations, reducing RMSE from 20.72 to 0.016 at high-variance sites.</p>
+                <p>Built for the river stations that break most forecasts, not the easy ones. RMSE dropped from 20.72 to 0.016 at the high-variance sites, in under half a second per station.</p>
                 <div class="tags"><span class="tag">CNN–LSTM</span><span class="tag">TIME SERIES</span><span class="tag">DATA ENGINEERING</span></div>
               </div>
               <span class="number">02</span>
@@ -338,7 +338,7 @@
             <div class="project-meta">
               <div>
                 <h3>Construction and Implementation of a Multi-Hazard Evacuation Support System</h3>
-                <p>A real-time disaster preparedness and evacuation platform built for Fukui, Japan, integrating health, supplies, and route intelligence.</p>
+                <p>Not just a shelter map. Tracks personal health, emergency supplies, and evacuation routes together in real time, for Fukui Prefecture, Japan.</p>
                 <div class="tags"><span class="tag">FULL STACK</span><span class="tag">GEOSPATIAL</span><span class="tag">AI</span></div>
               </div>
               <span class="number">03</span>

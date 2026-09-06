@@ -7,6 +7,7 @@
 .project-content h2 { margin:0 0 10px; font:600 clamp(25px,3vw,38px)/1.15 "Space Grotesk","Noto Sans TC",sans-serif; letter-spacing:-.04em; }
 .project-content .partner { margin:0 0 28px; color:var(--muted); font-size:12px; letter-spacing:.06em; text-transform:uppercase; }
 .project-layout { display:grid; grid-template-columns:minmax(0,1.15fr) minmax(280px,.85fr); gap:42px; align-items:start; }
+.project-layout.no-figure { grid-template-columns:1fr; max-width:760px; }
 .project-copy p { margin:0; color:var(--muted); font-size:15px; }
 .project-figure { display:grid; place-items:center; min-height:240px; margin:0; padding:24px; border:1px solid var(--line); background:#f8f8f6; }
 .project-figure img { display:block; width:100%; max-height:300px; object-fit:contain; filter:saturate(.76) contrast(.97); }
