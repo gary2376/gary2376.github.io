@@ -14,14 +14,7 @@
   <main><section><div class="shell">
     <div class="search-box">
       <input type="text" id="notes-search" placeholder="搜尋標題、摘要、分類…" aria-label="Search notes">
-      <div class="filters" id="search-suggestions">
-        <button type="button" class="filter" data-q="Agent">Agent</button>
-        <button type="button" class="filter" data-q="MCP">MCP</button>
-        <button type="button" class="filter" data-q="RAG">RAG</button>
-        <button type="button" class="filter" data-q="VLM">VLM</button>
-        <button type="button" class="filter" data-q="DeepSeek">DeepSeek</button>
-        <button type="button" class="filter" data-q="Context Engineering">Context Engineering</button>
-      </div>
+      <p class="search-hint" id="search-suggestions">試試：<button type="button" data-q="Agent">Agent</button> · <button type="button" data-q="MCP">MCP</button> · <button type="button" data-q="RAG">RAG</button> · <button type="button" data-q="VLM">VLM</button> · <button type="button" data-q="DeepSeek">DeepSeek</button> · <button type="button" data-q="Context Engineering">Context Engineering</button></p>
     </div>
     <p class="section-label">AGENT &amp; TOOLING</p>
     <div class="list">
@@ -465,10 +458,10 @@
       while (list && !list.classList.contains('list')) list = list.nextElementSibling;
       return { label, list };
     }).filter(s => s.list);
-    document.querySelectorAll('#search-suggestions .filter').forEach(btn => {
+    document.querySelectorAll('#search-suggestions button').forEach(btn => {
       btn.addEventListener('click', () => {
         const wasActive = btn.classList.contains('active');
-        document.querySelectorAll('#search-suggestions .filter').forEach(b => b.classList.remove('active'));
+        document.querySelectorAll('#search-suggestions button').forEach(b => b.classList.remove('active'));
         search.value = wasActive ? '' : btn.dataset.q;
         if (!wasActive) btn.classList.add('active');
         search.dispatchEvent(new Event('input'));
