@@ -12,7 +12,13 @@
   <header><nav class="shell"><a class="brand" href="index.html">Gary HSU <span>/ AI RESEARCH &amp; ENGINEERING</span></a><div class="links"><a href="projects.html">Projects</a><a href="milestones.html">Milestones</a><a href="builds.html">Builds</a><a href="notes.html" aria-current="page">Notes</a><a class="optional" href="index.html#about">About</a></div></nav></header>
   <div class="page-head"><div class="shell"><p class="eyebrow">HackMD / Study notes</p><h1>STUDY<span> NOTES.</span></h1><div class="intro"><p>平常讀論文、上課、拆解別人開源專案時順手記的筆記，沒有另外潤過稿，標題跟摘要都對照原文寫的，點連結直接看原文。</p><div></div></div><div class="summary-grid"><div class="summary-card"><strong>38</strong><span>Notes indexed</span></div><div class="summary-card"><strong>5</strong><span>Categories</span></div><div class="summary-card"><strong>Agent &amp; Tooling</strong><span>Largest category</span></div></div></div></div>
   <main><section><div class="shell">
-    <p class="section-label">SEARCH</p>
+    <div class="search-head">
+      <p class="section-label">SEARCH</p>
+      <div class="view-toggle" role="group" aria-label="View mode">
+        <button type="button" id="view-list" aria-pressed="true" title="List view">☰</button>
+        <button type="button" id="view-grid" aria-pressed="false" title="Grid view">⊞</button>
+      </div>
+    </div>
     <div class="search-box">
       <input type="text" id="notes-search" placeholder="搜尋標題、摘要、分類…" aria-label="Search notes">
       <p class="search-hint" id="search-suggestions">試試：<button type="button" data-q="Agent">Agent</button> · <button type="button" data-q="MCP">MCP</button> · <button type="button" data-q="RAG">RAG</button> · <button type="button" data-q="VLM">VLM</button> · <button type="button" data-q="DeepSeek">DeepSeek</button> · <button type="button" data-q="Context Engineering">Context Engineering</button></p>
@@ -453,6 +459,20 @@
   </div></section></main>
   <footer class="shell"><span>© 2026 Gary HSU</span><a href="index.html">← Back to home</a><a href="https://hackmd.io/@4NvnI3uPRPug4EIEKcCtfw">HackMD ↗</a><a href="mailto:a8619537@gmail.com">Email ↗</a></footer>
   <script>
+    const gridBtn = document.getElementById('view-grid');
+    const listBtn = document.getElementById('view-list');
+    function setView(mode) {
+      document.body.classList.toggle('grid-view', mode === 'grid');
+      gridBtn.classList.toggle('active', mode === 'grid');
+      gridBtn.setAttribute('aria-pressed', mode === 'grid');
+      listBtn.classList.toggle('active', mode === 'list');
+      listBtn.setAttribute('aria-pressed', mode === 'list');
+      localStorage.setItem('notes-view', mode);
+    }
+    gridBtn.addEventListener('click', () => setView('grid'));
+    listBtn.addEventListener('click', () => setView('list'));
+    setView(localStorage.getItem('notes-view') === 'grid' ? 'grid' : 'list');
+
     const search = document.getElementById('notes-search');
     const sections = [...document.querySelectorAll('.section-label')].map(label => {
       let list = label.nextElementSibling;
