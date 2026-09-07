@@ -6,6 +6,7 @@
 .search-box input { width:100%; padding:14px 16px; border:1px solid var(--line); border-radius:0; background:transparent; font:14px "Noto Sans TC",sans-serif; color:var(--ink); -webkit-appearance:none; appearance:none; }
 .search-box input:focus { outline:none; border-color:var(--ink); }
 .search-box input::placeholder { color:var(--muted); }
+.search-box .filters { justify-content:flex-start; margin-top:12px; }
 .project-entry { display:grid; grid-template-columns:80px 1fr; gap:28px; padding:52px 0; border-bottom:1px solid var(--line); }
 .project-entry:first-child { border-top:1px solid var(--ink); }
 .project-content h2 { margin:0 0 10px; font:600 clamp(25px,3vw,38px)/1.15 "Space Grotesk","Noto Sans TC",sans-serif; letter-spacing:-.04em; }
