@@ -25,7 +25,7 @@
       margin: 0;
       background: var(--paper);
       color: var(--ink);
-      font-family: "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", sans-serif;
+      font-family: Inter, "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", sans-serif;
       font-size: 16px;
       line-height: 1.65;
     }
@@ -93,7 +93,7 @@
       justify-content: space-between;
       gap: 30px;
     }
-    .brand { font-family: "Space Grotesk", sans-serif; font-size: 15px; font-weight: 600; letter-spacing: -.02em; }
+    .brand { font-family: "Space Grotesk", "Noto Sans TC", sans-serif; font-size: 15px; font-weight: 600; }
     .brand span { margin-left: 8px; color: var(--muted); font-weight: 500; }
     .nav-links { display: flex; align-items: center; gap: 26px; font-size: 13px; }
     .nav-links a { position: relative; }
@@ -245,7 +245,7 @@
     @media (max-width: 800px) {
       .shell { width: min(calc(100% - 32px), var(--max)); }
       nav { min-height: 62px; }
-      .brand span, .nav-links a { display: none; }
+      .brand span, .nav-links .optional { display: none; }
       .hero { min-height: calc(100svh - 63px); padding-block: 54px 24px; }
       .hero-main, .section-head, .about-grid { grid-template-columns: 1fr; }
       .hero-main { align-content: center; gap: 54px; }
@@ -274,7 +274,7 @@
         <a href="milestones.html">Milestones</a>
         <a href="builds.html">Builds</a>
         <a href="notes.html">Notes</a>
-        <a href="#about">About</a>
+        <a class="optional" href="#about">About</a>
       </div>
     </nav>
   </header>
