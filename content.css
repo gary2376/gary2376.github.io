@@ -6,9 +6,9 @@
 .category-filter button { display:inline-flex; align-items:center; gap:6px; padding:7px 12px; border:1px solid var(--line); background:transparent; color:var(--muted); font:12px "IBM Plex Mono",monospace; cursor:pointer; }
 .category-filter button span { font-size:13px; }
 .category-filter button.active { border-color:var(--ink); color:var(--ink); background:var(--panel); }
-.category-filter + .search-head .section-label { margin-top:24px; }
+.category-filter + .search-head { margin-top:24px; }
 .search-head { display:flex; align-items:center; justify-content:space-between; }
-.search-head .section-label { margin-bottom:0; }
+.search-head .section-label { margin:0; }
 .view-toggle { display:flex; gap:4px; }
 .view-toggle button { width:32px; height:32px; border:1px solid var(--line); background:transparent; color:var(--muted); font-size:15px; line-height:1; cursor:pointer; }
 .view-toggle button.active { border-color:var(--ink); color:var(--ink); background:var(--panel); }
