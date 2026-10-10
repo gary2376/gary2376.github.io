@@ -1195,6 +1195,8 @@
         document.querySelectorAll('#search-suggestions button').forEach(b => b.classList.remove('active'));
         search.value = wasActive ? '' : btn.dataset.q;
         if (!wasActive) btn.classList.add('active');
+        activeCategory = 'all';
+        categoryBtns.forEach(b => b.classList.toggle('active', b.dataset.cat === 'all'));
         applyFilters();
       });
     });
