@@ -771,7 +771,7 @@
         <span class="meta">HACKMD<br>NOTE</span>
         <span class="arrow">↗</span>
       </a>
-      <a class="row" href="https://hackmd.io/@4NvnI3uPRPug4EIEKcCtfw/SJ-crOUnWx" target="_blank" rel="noopener noreferrer">
+      <a class="row" href="https://hackmd.io/@4NvnI3uPRPug4EIEKcCtfw/SJ-crOUnWx" target="_blank" rel="noopener noreferrer" data-extra-cat="AGENT &amp; TOOLING">
         <span class="num">04</span>
         <div>
           <span class="type">HACKMD NOTE</span>
@@ -782,7 +782,7 @@
         <span class="meta">HACKMD<br>NOTE</span>
         <span class="arrow">↗</span>
       </a>
-      <a class="row" href="https://hackmd.io/@4NvnI3uPRPug4EIEKcCtfw/HJUemNsBze" target="_blank" rel="noopener noreferrer">
+      <a class="row" href="https://hackmd.io/@4NvnI3uPRPug4EIEKcCtfw/HJUemNsBze" target="_blank" rel="noopener noreferrer" data-extra-cat="AGENT &amp; TOOLING">
         <span class="num">05</span>
         <div>
           <span class="type">HACKMD NOTE</span>
@@ -793,7 +793,7 @@
         <span class="meta">HACKMD<br>NOTE</span>
         <span class="arrow">↗</span>
       </a>
-      <a class="row" href="https://hackmd.io/@4NvnI3uPRPug4EIEKcCtfw/SJUKO7bEGg" target="_blank" rel="noopener noreferrer">
+      <a class="row" href="https://hackmd.io/@4NvnI3uPRPug4EIEKcCtfw/SJUKO7bEGg" target="_blank" rel="noopener noreferrer" data-extra-cat="LLM &amp; GENERATIVE AI FUNDAMENTALS">
         <span class="num">06</span>
         <div>
           <span class="type">HACKMD NOTE</span>
@@ -804,7 +804,7 @@
         <span class="meta">HACKMD<br>NOTE</span>
         <span class="arrow">↗</span>
       </a>
-      <a class="row" href="https://hackmd.io/@4NvnI3uPRPug4EIEKcCtfw/B1XuXV97zx" target="_blank" rel="noopener noreferrer">
+      <a class="row" href="https://hackmd.io/@4NvnI3uPRPug4EIEKcCtfw/B1XuXV97zx" target="_blank" rel="noopener noreferrer" data-extra-cat="LLM &amp; GENERATIVE AI FUNDAMENTALS">
         <span class="num">07</span>
         <div>
           <span class="type">HACKMD NOTE</span>
@@ -815,7 +815,7 @@
         <span class="meta">HACKMD<br>NOTE</span>
         <span class="arrow">↗</span>
       </a>
-      <a class="row" href="https://hackmd.io/@4NvnI3uPRPug4EIEKcCtfw/Sk-GsvLMfg" target="_blank" rel="noopener noreferrer">
+      <a class="row" href="https://hackmd.io/@4NvnI3uPRPug4EIEKcCtfw/Sk-GsvLMfg" target="_blank" rel="noopener noreferrer" data-extra-cat="AGENT &amp; TOOLING">
         <span class="num">08</span>
         <div>
           <span class="type">HACKMD NOTE</span>
@@ -826,7 +826,7 @@
         <span class="meta">HACKMD<br>NOTE</span>
         <span class="arrow">↗</span>
       </a>
-      <a class="row" href="https://hackmd.io/@4NvnI3uPRPug4EIEKcCtfw/HJdZv4ApZg" target="_blank" rel="noopener noreferrer">
+      <a class="row" href="https://hackmd.io/@4NvnI3uPRPug4EIEKcCtfw/HJdZv4ApZg" target="_blank" rel="noopener noreferrer" data-extra-cat="AGENT &amp; TOOLING">
         <span class="num">09</span>
         <div>
           <span class="type">HACKMD NOTE</span>
@@ -859,7 +859,7 @@
         <span class="meta">HACKMD<br>NOTE</span>
         <span class="arrow">↗</span>
       </a>
-      <a class="row" href="https://hackmd.io/@4NvnI3uPRPug4EIEKcCtfw/HkQ4KFPqfx" target="_blank" rel="noopener noreferrer">
+      <a class="row" href="https://hackmd.io/@4NvnI3uPRPug4EIEKcCtfw/HkQ4KFPqfx" target="_blank" rel="noopener noreferrer" data-extra-cat="LLM &amp; GENERATIVE AI FUNDAMENTALS">
         <span class="num">12</span>
         <div>
           <span class="type">HACKMD NOTE</span>
@@ -1187,7 +1187,7 @@
     const sections = [...document.querySelectorAll('.category-label')].map(label => {
       let list = label.nextElementSibling;
       while (list && !list.classList.contains('list')) list = list.nextElementSibling;
-      return { label, list };
+      return { label, list, category: label.textContent.trim() };
     }).filter(s => s.list);
     document.querySelectorAll('#search-suggestions button').forEach(btn => {
       btn.addEventListener('click', () => {
@@ -1211,11 +1211,13 @@
 
     function applyFilters() {
       const q = search.value.trim().toLowerCase();
-      sections.forEach(({ label, list }) => {
-        const categoryMatch = activeCategory === 'all' || label.textContent.trim() === activeCategory;
+      sections.forEach(({ label, list, category }) => {
         const rows = [...list.querySelectorAll('a.row')];
         let visible = 0;
         rows.forEach(row => {
+          const extra = (row.dataset.extraCat || '').split('|').filter(Boolean);
+          const rowCategories = [category, ...extra];
+          const categoryMatch = activeCategory === 'all' || rowCategories.includes(activeCategory);
           const match = categoryMatch && (!q || row.textContent.toLowerCase().includes(q));
           row.style.display = match ? '' : 'none';
           if (match) visible++;
